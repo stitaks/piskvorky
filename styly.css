@@ -1,0 +1,13 @@
+body{
+    height: 100vh;
+    background: rgb(97,93,173);
+background: linear-gradient(180deg, rgba(97,93,173,1) 0%, rgba(255,200,218,1) 100%);
+}
+
+.card{
+    width: 50%;
+    background-color: #283e50;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
