@@ -59,3 +59,11 @@ header {
 .card_button--blue {
   background-color: #0197f6;
 }
+
+.card_button--green:hover {
+  background-color: #1cbb96;
+}
+
+.card_button--blue:hover {
+  background-color: #0090e9;
+}
