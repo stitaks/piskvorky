@@ -84,7 +84,7 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  width: 80vw;
+  max-width: 80vw;
   border: 0.07rem #283e50 solid;
 }
 
@@ -96,14 +96,51 @@ body {
 
 .game__box{
   border: 0.05rem #2e3c47 solid;
-  height: calc(80vw / 10);
-  width: calc(100% / 10);
-  background-color: rgba(255, 255, 255, 0.568);
+  height: calc(70vw / 10);
+  width: calc(70vw / 10);
+  background-color: rgba(255, 255, 255, 0.5);
   box-sizing: border-box;
+}
+
+.game__box:hover, .game__box:focus{
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .game__menu{
   display: flex;
+  justify-content: space-between;
 }
+
+.game__text{
+  font-size: 2rem;
+}
+
+.game__image{
+  height: 2rem;
+  padding: 0 0 0 1.5rem;
+}
+
+.game__now{
+  display: flex;
+  align-items: center;
+  color: white;
+  font-family: sans-serif;
+}
+
+
+.game__buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.game__button{
+  padding: 0.7rem;
+  margin: 1rem;
+border-radius: 5% ;
+}
+
 
 
