@@ -1,18 +1,18 @@
+
+
 body {
-  height: 100vh;
   background: rgb(97, 93, 173);
   background: linear-gradient(
     180deg,
     rgba(97, 93, 173, 1) 0%,
     rgba(255, 200, 218, 1) 100%
   );
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-header {
-  height: 10%;
+  height: 100%;
+  background-attachment: fixed;
 }
 
 .card {
@@ -23,6 +23,7 @@ header {
   text-align: center;
   border-radius: 1rem 1rem 0 0;
   font-family: sans-serif;
+  margin: 6rem 0 0 0;
 }
 
 .card__image {
@@ -67,3 +68,42 @@ header {
 .card_button--blue:hover {
   background-color: #0090e9;
 }
+
+.game{
+  height: 100vh;
+  margin: 0 0 15rem 0;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+.game__heading{
+  font-size: 5rem;
+}
+
+.game__field{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 80vw;
+  border: 0.07rem #283e50 solid;
+}
+
+.game__row{
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.game__box{
+  border: 0.05rem #2e3c47 solid;
+  height: calc(80vw / 10);
+  width: calc(100% / 10);
+  background-color: rgba(255, 255, 255, 0.568);
+  box-sizing: border-box;
+}
+
+.game__menu{
+  display: flex;
+}
+
+
