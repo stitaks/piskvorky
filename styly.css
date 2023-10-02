@@ -82,7 +82,7 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  max-width: 80vw;
+  max-width: 70vw;
   border: 0.07rem #283e50 solid;
 }
 
@@ -98,6 +98,8 @@ body {
   width: calc(70vw / 10);
   background-color: rgba(255, 255, 255, 0.5);
   box-sizing: border-box;
+  flex-basis:10%;
+  aspect-ratio: 1;
 }
 
 .game__box:hover, .game__box:focus{
@@ -115,7 +117,7 @@ body {
 
 .game__image{
   height: 2rem;
-  padding: 0 0 0 1.5rem;
+  padding: 0 0 0 1rem;
 }
 
 .game__now{
@@ -135,9 +137,25 @@ body {
 }
 
 .game__button{
+  min-width: 2rem;
+  min-height: 2rem;
   padding: 0.7rem;
-  margin: 1rem;
-border-radius: 5% ;
+  margin: 0.5rem;
+  border-radius: 5% ;
+}
+
+.board__field--circle{
+  background-image: url(img/circle-black.svg);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: center;
+}
+
+.board__field--cross{
+  background-image: url(img/cross-black.svg);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: center;
 }
 
 
