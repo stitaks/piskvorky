@@ -81,14 +81,12 @@ body {
 .game__field{
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
   max-width: 70vw;
   border: 0.07rem #283e50 solid;
 }
 
 .game__row{
   display: flex;
-  flex-wrap: nowrap;
   width: 100%;
 }
 
