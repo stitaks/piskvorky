@@ -2,7 +2,7 @@ import { findWinner } from 'https://unpkg.com/piskvorky@0.1.4';
 
 let currentPlayer = 'circle';
 
-const whoIsWinner = () => {
+const poleWinnerFunction = () => {
     const poleWinner =[];
     document.body.querySelectorAll('.game__box').forEach((button) => {
         if (button.classList.contains('board__field--cross')){
@@ -15,24 +15,61 @@ const whoIsWinner = () => {
             poleWinner.push('_');
         }
     })
+    return poleWinner;
+}
+
+
+const responseFunction = async() => {
+    const response = await fetch(
+        'https://piskvorky.czechitas-podklady.cz/api/suggest-next-move',
+        {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify({
+                board: poleWinnerFunction(),
+                player: 'x',
+            }),
+        },
+    )
+    const { position, error } = await response.json();
+    if (error !== undefined){
+        return 'error';
+    }
+    return position.x + position.y * 10;  
+}
+
+
+const whoIsWinner = () => {
+    const poleWinner = poleWinnerFunction();
     return findWinner(poleWinner);
 }
 
-const change = (event) => {
+const change = async(event) => {
     if (currentPlayer === 'cross') {
         event.target.className += ' board__field--cross';
         currentPlayer = 'circle';
         event.target.disabled = true;
         document.body.querySelector('.game__image').src = 'img/circle.svg';
-        
     }
     else {
         event.target.className += ' board__field--circle';
         currentPlayer = 'cross';
         event.target.disabled = true;
         document.body.querySelector('.game__image').src = 'img/cross.svg';
+        const indexKrizek = await responseFunction();
+        console.log(indexKrizek);
+        const buttons = document.body.querySelectorAll('.game__box');
+        if (indexKrizek !== 'error'){
+            buttons.forEach((button, index) => {
+                if (index === indexKrizek){
+                    button.click();
+                }
+            });
+        }
     }
-const vitez = whoIsWinner();
+    const vitez = whoIsWinner();
     if (vitez === 'o' || vitez === 'x') {
         const alertOX = () => {alert(`Vyhrál hráč se symbolem ${vitez}.`);
         location.reload();}
